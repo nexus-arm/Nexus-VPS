@@ -355,7 +355,7 @@ install_lily() {
 
     # 4. Create the 'lily' command on the host system
     echo -e "${YELLOW}[*] Creating a global 'lily' command...${NC}"
-    echo -e "#!/bin/bash\nsudo docker exec -i \"$container_name\" ollama run $model_name \"\$@\"" | sudo tee /usr/local/bin/lily > /dev/null
+    echo -e "#!/bin/bash\nsudo docker exec -it \"$container_name\" ollama run $model_name \"\$@\"" | sudo tee /usr/local/bin/lily > /dev/null
     sudo chmod +x /usr/local/bin/lily
     echo -e "${GREEN}[+] Success! Type 'lily' to chat.${NC}"
 }
