@@ -8,9 +8,11 @@ This script is built for cybersecurity professionals, students, and enthusiasts 
 
 ## ☕ Support the Project
 
-If you find this project useful and want to support its development, you can **buy me a coffee**:  
+If you like this project and want to support its development, you can donate TON using the following key:
 
-[![Buy Me A Coffee](https://img.shields.io/badge/☕-Buy%20Me%20a%20Coffee-orange)](https://buymeacoffee.com/UQBnoOaSb46CRspYXK_ha9tiD5yum-ZYUGAnhJCX5Urfffg9)
+`UQBnoOaSb46CRspYXK_ha9tiD5yum-ZYUGAnhJCX5Urfffg9`
+
+Thank you for your support! 🙏
 
 
 ![Project Logo](Banner.jpg)
