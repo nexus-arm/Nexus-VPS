@@ -6,14 +6,16 @@ This script is built for cybersecurity professionals, students, and enthusiasts 
 
 ---
 
+![Project Logo](Screenshot.jpg)
+
 ## Features
 
 - **Interactive Menu System**: A user-friendly, menu-driven interface to install tools individually or all at once.
 - **Modular Installation**: Choose exactly which tools you need. No bloat.
-- **Source & Package Installations**: Intelligently combines installations from official repositories (`apt`), GitHub (for the latest versions), and language managers (RVM, Go toolchain).
-- **Dockerized AI Assistant (Lily)**: Installs and configures "Lily," a cybersecurity-focused AI, inside a Docker container for complete system isolation and easy management.
-- **GUI Installation**: Easily add a full desktop environment to your CLI-only server. Choose between the standard GNOME (full Ubuntu experience) or lightweight XFCE.
-- **Automated Dependency Handling**: The script automatically installs all necessary prerequisites, including specific versions of Ruby (via RVM) and Go.
+- **Source & Package Installations**: Intelligently combines installations from official repositories (`apt`), `GitHub` (for the latest versions), and language managers `(RVM, Go toolchain)`.
+- **Dockerized AI Assistant (Lily)**: Installs and configures "`Lily`" a cybersecurity-focused AI, inside a `Docker` container for complete system isolation and easy management.
+- **GUI Installation**: Easily add a full desktop environment to your CLI-only server. Choose between the standard `GNOME` (full Ubuntu experience) or lightweight `XFCE`.
+- **Automated Dependency Handling**: The script automatically installs all necessary prerequisites, including specific versions of `Ruby` (via RVM) and `Go`.
 - **Verification & Maintenance**: Includes options to check tool versions and completely reinstall the toolkit.
 
 ---
@@ -40,7 +42,7 @@ Below is a categorized overview of the main tools bundled with this installer.
 
 ## Prerequisites
 
-- An Ubuntu-based system (VPS or local machine). Primarily tested on **Ubuntu 22.04 LTS**.
+- An `Ubuntu-based` system `(VPS or local machine)`. Primarily tested on **Ubuntu 22.04 LTS**.
 - `sudo` or root privileges.
 - A stable internet connection for downloading packages and source code.
 
