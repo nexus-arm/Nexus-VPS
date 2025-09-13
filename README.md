@@ -6,7 +6,7 @@ This script is built for cybersecurity professionals, students, and enthusiasts 
 
 ---
 
-![Project Logo](Screenshot.jpg)
+![Project Logo](Banner.jpg)
 
 ## Features
 
