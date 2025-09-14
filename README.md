@@ -1,4 +1,8 @@
-# Comprehensive Pentesting Tool Installer for Ubuntu
+# Nexus-vps
+
+![Project Logo](Banner.jpg)
+
+## Comprehensive Pentesting Tool Installer for Ubuntu
 
 A powerful and interactive bash script designed to automate the installation and management of a wide range of penetration testing tools, services, a full graphical desktop environment, and a containerized AI assistant on fresh Ubuntu systems (primarily tested on Ubuntu 22.04 LTS).
 
@@ -14,8 +18,6 @@ If you like this project and want to support its development, you can donate TON
 
 Thank you for your support! 🙏
 
-
-![Project Logo](Banner.jpg)
 
 ## Features
 
