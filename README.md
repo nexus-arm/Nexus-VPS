@@ -1,5 +1,7 @@
 # Nexus VPS - Comprehensive Pentesting & Automation Installer (Ubuntu Edition)
 
+![Project Banner](Banner.jpg)
+
 ## 📌 Overview
 A powerful and **interactive bash script** designed to automate the installation and management of:
 
@@ -11,8 +13,6 @@ A powerful and **interactive bash script** designed to automate the installation
 
 ✅ Primarily tested on **Ubuntu 22.04 LTS**.  
 ✅ Built for **cybersecurity professionals, developers, and enthusiasts**.  
-
-![Project Banner](Banner.jpg)
 
 ---
 
