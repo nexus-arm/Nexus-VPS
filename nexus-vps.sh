@@ -22,7 +22,7 @@ display_logo() {
 |/    )_)(_______/|/     \|(_______)\_______)           \_/   |/        \_______) 
                                                                                 
 EOF
-    echo -e "${CYAN}          A Comprehensive Pentesting Tool Installer v2 (Ubuntu Edition)${NC}"
+    echo -e "${CYAN}          A Comprehensive Pentesting Tool Installer v3 (Ubuntu Edition)${NC}"
     echo ""
 }
 
@@ -46,13 +46,17 @@ display_pentest_menu() {
     echo -e "${YELLOW}======================================================${NC}"
     echo -e "                   ${YELLOW}PENTEST TOOL INSTALLER${NC}"
     echo -e "${YELLOW}======================================================${NC}"
-    echo " 1)  SQLMap          8)  Wfuzz"
-    echo " 2)  Hydra           9)  Metasploit"
-    echo " 3)  Nmap            10) Nikto"
-    echo " 4)  BeEF-XSS        11) Recon-ng"
-    echo " 5)  ffuf            12) Nginx"
-    echo " 6)  Docker          13) ProxyChains"
-    echo " 7)  Neovim          14) Install ALL Tools"
+    echo " 1)  SQLMap                 10) Nikto"
+    echo " 2)  Hydra                  11) Recon-ng"
+    echo " 3)  Nmap                   12) Nginx"
+    echo " 4)  BeEF-XSS               13) ProxyChains"
+    echo " 5)  ffuf                   14) MHDDoS"
+    echo " 6)  Docker                 15) PayloadsAllTheThings"
+    echo " 7)  Neovim                 16) Villain"
+    echo " 8)  Wfuzz                  17) SpiderFoot"
+    echo " 9)  Metasploit"
+    echo ""
+    echo " 18) Install ALL Tools"
     echo ""
     echo " 0) Return to Main Menu"
     echo -e "${YELLOW}======================================================${NC}"
@@ -287,6 +291,39 @@ install_proxychains() {
         echo -e "${GREEN}[*] ProxyChains is already installed. Skipping.${NC}"
     fi
 }
+install_mhddos() {
+    install_tool "MHDDoS" "https://github.com/MatrixTM/MHDDoS.git" ""
+    if [ -d "$INSTALL_DIR/MHDDoS" ]; then
+        cd "$INSTALL_DIR/MHDDoS" 
+        sudo python3 -m pip install -r requirements.txt 
+        sudo chmod +x start.py 
+        sudo ln -sf "$PWD/start.py" /usr/local/bin/mhddos
+        echo -e "${CYAN}[i] MHDDoS is installed in: $INSTALL_DIR/MHDDoS${NC}"
+        echo -e "${CYAN}[i] You can run it from anywhere with the 'mhddos' command.${NC}"
+    fi
+}
+install_payloadsallthethings() {
+    install_tool "PayloadsAllTheThings" "https://github.com/swisskyrepo/PayloadsAllTheThings.git" ""
+    if [ -d "$INSTALL_DIR/PayloadsAllTheThings" ]; then
+        echo -e "${CYAN}[i] PayloadsAllTheThings is located at: $INSTALL_DIR/PayloadsAllTheThings${NC}"
+    fi
+}
+install_villain() {
+    echo -e "${YELLOW}[*] Installing Villain dependencies...${NC}"
+    sudo apt-get install -y imagemagick xclip
+    install_tool "Villain" "https://github.com/t3l3machus/Villain.git" "cd \"$INSTALL_DIR/Villain\" && sudo python3 -m pip install -r requirements.txt && sudo chmod +x Villain.py && sudo ln -sf \"$INSTALL_DIR/Villain/Villain.py\" /usr/local/bin/villain"
+    if [ -d "$INSTALL_DIR/Villain" ]; then
+        echo -e "${CYAN}[i] Villain is installed in: $INSTALL_DIR/Villain${NC}"
+        echo -e "${CYAN}[i] You can run it from anywhere with the 'villain' command.${NC}"
+    fi
+}
+install_spiderfoot() {
+    install_tool "spiderfoot" "https://github.com/smicallef/spiderfoot.git" "cd \"$INSTALL_DIR/spiderfoot\" && sudo python3 -m pip install -r requirements.txt && sudo chmod +x sf.py && sudo ln -sf \"$INSTALL_DIR/spiderfoot/sf.py\" /usr/local/bin/spiderfoot"
+    if [ -d "$INSTALL_DIR/spiderfoot" ]; then
+        echo -e "${CYAN}[i] SpiderFoot is located at: $INSTALL_DIR/spiderfoot${NC}"
+        echo -e "${CYAN}[i] Run it with the command: spiderfoot${NC}"
+    fi
+}
 install_gnome() {
     echo -e "${YELLOW}[*] Installing Full GNOME Desktop... This will take a significant amount of time and disk space.${NC}"
     read -p "Are you sure you want to continue? (y/n): " confirm
@@ -326,20 +363,31 @@ install_xfce() {
 # --- Generic Tool Installer with Error Handling ---
 install_tool() {
     local name=$1; local repo=$2; local cmd=$3
+    
+    # Check if tool is already installed
     if [ ! -d "$INSTALL_DIR/$name" ]; then
+        # If not, install it by cloning the repository
         echo -e "${YELLOW}[*] Installing $name...${NC}"; 
         sudo git clone --depth=1 "$repo" "$INSTALL_DIR/$name"
-        if [ -n "$cmd" ]; then 
-            if (source_rvm && eval "$cmd"); then
-                echo -e "${GREEN}[+] $name configured successfully.${NC}"
-            else
-                echo -e "${RED}[-] Configuration failed for $name.${NC}"
-                return 1
-            fi
+        if [ $? -ne 0 ]; then
+            echo -e "${RED}[-] Failed to clone the repository for $name.${NC}"
+            return 1
         fi
-        echo -e "${GREEN}[+] $name installed successfully.${NC}"
+        echo -e "${GREEN}[+] $name cloned successfully.${NC}"
     else
-        echo -e "${GREEN}[*] $name is already installed. Skipping.${NC}"
+        # If it is already installed, just print a verification message
+        echo -e "${GREEN}[*] $name is already installed. Verifying configuration...${NC}"
+    fi
+
+    # Run configuration steps (like setting permissions and creating symlinks)
+    # for both new installations and existing ones to ensure they are correct.
+    if [ -n "$cmd" ]; then 
+        if (source_rvm && eval "$cmd"); then
+            echo -e "${GREEN}[+] $name configuration is correct.${NC}"
+        else
+            echo -e "${RED}[-] Configuration command failed for $name.${NC}"
+            return 1
+        fi
     fi
 }
 
@@ -350,7 +398,8 @@ full_install_all() {
     sudo mkdir -p $INSTALL_DIR; cd $INSTALL_DIR || exit
     install_sqlmap; install_hydra; install_nmap; install_beef; install_ffuf;
     install_docker; install_neovim; install_wfuzz; install_metasploit;
-    install_nikto; install_recon_ng; install_nginx; install_proxychains
+    install_nikto; install_recon_ng; install_nginx; install_proxychains;
+    install_mhddos; install_payloadsallthethings; install_villain; install_spiderfoot
     verify_installations
 }
 
@@ -699,6 +748,9 @@ check_versions() {
     check_version "nvim" "nvim --version"
     check_version "proxychains4" "proxychains4"
     check_version "n8n" "n8n --version"
+    check_version "mhddos" "mhddos --help | head -n 1"
+    check_version "villain" "villain --help | head -n 1"
+    check_version "spiderfoot" "spiderfoot --version"
 }
 check_version() {
     local tool=$1; local cmd=$2
@@ -713,8 +765,8 @@ reinstall_tools() {
     read -p "Are you sure? (y/n): " confirm
     if [[ "$confirm" == "y" || "$confirm" == "Y" ]]; then
         echo "[*] Removing directories and symlinks..."; 
-        sudo rm -rf $INSTALL_DIR/{sqlmap,thc-hydra,nmap,beef,wfuzz,nikto,recon-ng}
-        sudo rm -f /usr/local/bin/{sqlmap,hydra,nmap,ffuf,wfuzz,nikto,recon-ng,msfconsole,msfvenom,nvim,lily,coder}
+        sudo rm -rf $INSTALL_DIR/{sqlmap,thc-hydra,nmap,beef,wfuzz,nikto,recon-ng,MHDDoS,PayloadsAllTheThings,Villain,spiderfoot}
+        sudo rm -f /usr/local/bin/{sqlmap,hydra,nmap,ffuf,wfuzz,nikto,recon-ng,msfconsole,msfvenom,nvim,lily,coder,mhddos,villain,spiderfoot}
         if sudo docker ps -a --format '{{.Names}}' | grep -q "^ollama-service$"; then
             echo "[*] Stopping and removing the shared Ollama Docker container..."
             sudo docker stop ollama-service && sudo docker rm ollama-service
@@ -738,6 +790,10 @@ verify_installations() {
     check_manual_tool "$INSTALL_DIR/beef/beef" "Beef-XSS"
     check_command "nginx"; check_command "docker"; check_command "nvim" "Neovim"; check_command "proxychains4" "ProxyChains"
     check_command "lily"; check_command "coder"; check_command "n8n"
+    check_manual_tool "$INSTALL_DIR/MHDDoS/start.py" "MHDDoS"
+    check_manual_tool "$INSTALL_DIR/PayloadsAllTheThings" "PayloadsAllTheThings"
+    check_manual_tool "$INSTALL_DIR/Villain/Villain.py" "Villain"
+    check_manual_tool "$INSTALL_DIR/spiderfoot/sf.py" "SpiderFoot"
     echo -e "${YELLOW}--- Verification Complete ---${NC}"
 }
 check_command() {
@@ -748,25 +804,45 @@ check_command() {
     if command -v "$1" &>/dev/null; then echo -e "[${GREEN}+${NC}] $tool is available."; else echo -e "[${RED}-${NC}] $tool FAILED."; fi
 }
 check_manual_tool() {
-    if [ -e "$1" ]; then echo -e "[${GREEN}+${NC}] $2 is available."; else echo -e "[${RED}-${NC}] $2 FAILED."; fi
+    local file_path="$1"
+    local tool_name="$2"
+    if [ -e "$file_path" ]; then
+        if [[ "$tool_name" == "MHDDoS" ]] && [ -L "/usr/local/bin/mhddos" ]; then
+            echo -e "[${GREEN}+${NC}] $tool_name is available and linked."
+        else
+            echo -e "[${GREEN}+${NC}] $tool_name is available."
+        fi
+    else
+        echo -e "[${RED}-${NC}] $tool_name FAILED."
+    fi
 }
-
+# --- Diagnostic Helper for MHDDoS Wrapper Issues ---
+diagnose_mhddos_wrapper() {
+    echo -e "${CYAN}[*] Checking /usr/local/bin/mhddos symlink:${NC}"
+    ls -l /usr/local/bin/mhddos
+    echo -e "\n${CYAN}[*] Showing first 40 lines of /opt/MHDDoS/start.py:${NC}"
+    sudo sed -n '1,40p' /opt/MHDDoS/start.py
+}
 # --- Menu Logic ---
 pentest_menu() {
     install_prerequisites
     while true; do
         clear; display_logo; display_pentest_menu
-        read -p "Select a tool to install [0-14]: " choice
+        read -p "Select a tool to install [0-18]: " choice
         case $choice in
             1) install_sqlmap ;; 2) install_hydra ;; 3) install_nmap ;;
             4) install_beef ;; 5) install_ffuf ;; 6) install_docker ;;
             7) install_neovim ;; 8) install_wfuzz ;; 9) install_metasploit ;;
             10) install_nikto ;; 11) install_recon_ng ;; 12) install_nginx ;;
-            13) install_proxychains ;; 14) full_install_all; break ;;
+            13) install_proxychains ;; 14) install_mhddos ;; 15) install_payloadsallthethings ;;
+            16) install_villain ;; 17) install_spiderfoot ;;
+            18) full_install_all; break ;;
             0) break ;;
             *) echo -e "${RED}Invalid option.${NC}" ;;
         esac
-        [ "$choice" != "14" ] && read -p "Press [Enter] to continue..."
+        if [[ "$choice" != "18" && "$choice" != "0" ]]; then
+            read -p "Press [Enter] to continue..."
+        fi
     done
 }
 gui_menu() {
