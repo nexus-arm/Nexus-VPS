@@ -22,7 +22,7 @@
 
 ## 📌 Overview
 
-> **Quick Links**: [⭐ Star on GitHub](https://github.com/nexus-arm/Nexus-VPS) | [📥 Download Latest](https://github.com/nexus-arm/Nexus-VPS/archive/refs/heads/main.zip) | [🐛 Report Issue](https://github.com/nexus-arm/Nexus-VPS/issues) | [📖 Wiki](https://github.com/nexus-arm/Nexus-VPS/wiki)
+> **Quick Links**: [⭐ Star on GitHub](https://github.com/nexus-arm/Nexus-VPS) | [📥 Download Latest]([https://github.com/nexus-arm/Nexus-VPS/archive/refs/heads/main.zip](https://github.com/nexus-arm/Nexus-VPS/releases/download/v3/Nexus_VPS.zip)) | [🐛 Report Issue](https://github.com/nexus-arm/Nexus-VPS/issues) | [📖 Wiki](https://github.com/nexus-arm/Nexus-VPS/wiki)
 
 Nexus VPS is an all-in-one automation script designed for cybersecurity professionals, developers, and tech enthusiasts. It streamlines the setup of a complete penetration testing environment, workflow automation platform, and AI-powered assistants on Ubuntu systems.
 
