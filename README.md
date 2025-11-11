@@ -623,9 +623,6 @@ Your support helps:
 - 📦 Enhanced dependency management
 - 🐛 Bug fixes and stability improvements
 
-### Previous Versions
-See [CHANGELOG.md](CHANGELOG.md) for full version history
-
 ---
 
 <div align="center">
@@ -634,6 +631,6 @@ See [CHANGELOG.md](CHANGELOG.md) for full version history
 
 **[🏠 View on GitHub](https://github.com/nexus-arm/Nexus-VPS)**
 
-[Report Bug](https://github.com/nexus-arm/Nexus-VPS/issues) • [Request Feature](https://github.com/nexus-arm/Nexus-VPS/issues/new?labels=enhancement) • [Discussions](https://github.com/nexus-arm/Nexus-VPS/discussions)
+[Report Bug](https://github.com/nexus-arm/Nexus-VPS/issues) • [Request Feature](https://github.com/nexus-arm/Nexus-VPS/issues/new?labels=enhancement) • 
 
 </div>
