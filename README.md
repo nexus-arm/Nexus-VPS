@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 # Nexus VPS - Comprehensive Pentesting & Automation Installer (Ubuntu Edition)
-=======
-# Nexus-vps
-
-![Project Logo](Banner.jpg)
-
-## Comprehensive Pentesting Tool Installer for Ubuntu
->>>>>>> 2bb13daa27578146971d45c6006763d48cf1a685
 
 ## 📌 Overview
 A powerful and **interactive bash script** designed to automate the installation and management of:
@@ -24,7 +16,6 @@ A powerful and **interactive bash script** designed to automate the installation
 
 ---
 
-<<<<<<< HEAD
 ## ✨ Features
 - **Interactive Menu System** – Simple, text-based navigation.  
 - **Pentest Tools Installer** – Install individually or all at once.  
@@ -34,26 +25,6 @@ A powerful and **interactive bash script** designed to automate the installation
 - **System Info Menu** – Run speedtest, view system hardware & network info.  
 - **Dependency Handling** – Installs Ruby (RVM), Go, Node.js (NVM), Docker automatically.  
 - **Maintenance & Verification** – Check versions, reinstall all tools, verify installations.  
-=======
-## ☕ Support the Project
-
-If you like this project and want to support its development, you can donate TON using the following key:
-
-`UQBnoOaSb46CRspYXK_ha9tiD5yum-ZYUGAnhJCX5Urfffg9`
-
-Thank you for your support! 🙏
-
-
-## Features
-
-- **Interactive Menu System**: A user-friendly, menu-driven interface to install tools individually or all at once.
-- **Modular Installation**: Choose exactly which tools you need. No bloat.
-- **Source & Package Installations**: Intelligently combines installations from official repositories (`apt`), `GitHub` (for the latest versions), and language managers `(RVM, Go toolchain)`.
-- **Dockerized AI Assistant (Lily)**: Installs and configures "`Lily`" a cybersecurity-focused AI, inside a `Docker` container for complete system isolation and easy management.
-- **GUI Installation**: Easily add a full desktop environment to your CLI-only server. Choose between the standard `GNOME` (full Ubuntu experience) or lightweight `XFCE`.
-- **Automated Dependency Handling**: The script automatically installs all necessary prerequisites, including specific versions of `Ruby` (via RVM) and `Go`.
-- **Verification & Maintenance**: Includes options to check tool versions and completely reinstall the toolkit.
->>>>>>> 2bb13daa27578146971d45c6006763d48cf1a685
 
 ---
 
