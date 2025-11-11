@@ -1,59 +1,73 @@
-<<<<<<< HEAD
-# Nexus VPS - Comprehensive Pentesting & Automation Installer (Ubuntu Edition)
-=======
-# Nexus-vps
+# Nexus VPS - Comprehensive Pentesting & Automation Installer
 
-![Project Logo](Banner.jpg)
-
-## Comprehensive Pentesting Tool Installer for Ubuntu
->>>>>>> 2bb13daa27578146971d45c6006763d48cf1a685
-
-## 📌 Overview
-A powerful and **interactive bash script** designed to automate the installation and management of:
-
-- Penetration testing tools  
-- Workflow automation (n8n)  
-- Graphical desktop environments (GNOME/XFCE)  
-- Containerized AI assistants (Lily & Coder with Ollama)  
-- System & network information utilities  
-
-✅ Primarily tested on **Ubuntu 22.04 LTS**.  
-✅ Built for **cybersecurity professionals, developers, and enthusiasts**.  
+<div align="center">
 
 ![Project Banner](Banner.jpg)
 
+[![GitHub Repo](https://img.shields.io/badge/GitHub-nexus--arm%2FNexus--VPS-181717?logo=github)](https://github.com/nexus-arm/Nexus-VPS)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04%20LTS-E95420?logo=ubuntu&logoColor=white)](https://ubuntu.com/)
+[![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+
+**A powerful interactive bash script for automating penetration testing, workflow automation, and AI assistant deployment**
+
+[Features](#-features) • [Installation](#-quick-start) • [Tools](#-tools--services) • [Documentation](#-menu-details) • [Support](#-support)
+
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Nexus--VPS-181717?logo=github)](https://github.com/nexus-arm/Nexus-VPS)
+
+</div>
+
 ---
 
-<<<<<<< HEAD
+## 📌 Overview
+
+> **Quick Links**: [⭐ Star on GitHub](https://github.com/nexus-arm/Nexus-VPS) | [📥 Download Latest](https://github.com/nexus-arm/Nexus-VPS/archive/refs/heads/main.zip) | [🐛 Report Issue](https://github.com/nexus-arm/Nexus-VPS/issues) | [📖 Wiki](https://github.com/nexus-arm/Nexus-VPS/wiki)
+
+Nexus VPS is an all-in-one automation script designed for cybersecurity professionals, developers, and tech enthusiasts. It streamlines the setup of a complete penetration testing environment, workflow automation platform, and AI-powered assistants on Ubuntu systems.
+
+### Key Capabilities
+- **🔐 Penetration Testing Suite** - Automated installation of industry-standard security tools
+- **🤖 AI Assistants** - Dockerized cybersecurity and programming AI with Ollama
+- **⚙️ Workflow Automation** - n8n platform with PM2 process management
+- **🖥️ GUI Environments** - GNOME/XFCE desktops with remote access support
+- **📊 System Intelligence** - Comprehensive hardware and network diagnostics
+
+### System Requirements
+- **OS**: Ubuntu 22.04 LTS (primary), Ubuntu 20.04+ (compatible)
+- **RAM**: 4GB minimum (8GB+ recommended for AI assistants)
+- **Storage**: 20GB+ free space
+- **Network**: Internet connection for downloads
+- **Privileges**: Root/sudo access required
+
+---
+
 ## ✨ Features
-- **Interactive Menu System** – Simple, text-based navigation.  
-- **Pentest Tools Installer** – Install individually or all at once.  
-- **Dockerized AI Assistants** – Deploy Lily (cybersecurity AI) & Coder (developer AI).  
-- **n8n Workflow Automation** – Manage with PM2 (install, run, update, stop).  
-- **Graphical Desktop (GUI)** – Install GNOME or XFCE, with xRDP remote access support.  
-- **System Info Menu** – Run speedtest, view system hardware & network info.  
-- **Dependency Handling** – Installs Ruby (RVM), Go, Node.js (NVM), Docker automatically.  
-- **Maintenance & Verification** – Check versions, reinstall all tools, verify installations.  
-=======
-## ☕ Support the Project
 
-If you like this project and want to support its development, you can donate TON using the following key:
+<table>
+<tr>
+<td width="50%">
 
-`UQBnoOaSb46CRspYXK_ha9tiD5yum-ZYUGAnhJCX5Urfffg9`
+### 🎯 Core Features
+- **Interactive Menu System** with intuitive navigation
+- **Batch Installation** for all tools at once
+- **Dependency Auto-Resolution** (Ruby/RVM, Go, Node.js/NVM, Docker)
+- **Version Verification** for all installed tools
+- **One-Click Reinstall** with complete cleanup
 
-Thank you for your support! 🙏
+</td>
+<td width="50%">
 
+### 🚀 Advanced Features
+- **Dockerized AI Stack** with Ollama backend
+- **PM2-Managed n8n** with auto-start on boot
+- **Remote Desktop Support** via xRDP
+- **System Diagnostics** with speedtest & hardware info
+- **Modular Architecture** for easy customization
 
-## Features
-
-- **Interactive Menu System**: A user-friendly, menu-driven interface to install tools individually or all at once.
-- **Modular Installation**: Choose exactly which tools you need. No bloat.
-- **Source & Package Installations**: Intelligently combines installations from official repositories (`apt`), `GitHub` (for the latest versions), and language managers `(RVM, Go toolchain)`.
-- **Dockerized AI Assistant (Lily)**: Installs and configures "`Lily`" a cybersecurity-focused AI, inside a `Docker` container for complete system isolation and easy management.
-- **GUI Installation**: Easily add a full desktop environment to your CLI-only server. Choose between the standard `GNOME` (full Ubuntu experience) or lightweight `XFCE`.
-- **Automated Dependency Handling**: The script automatically installs all necessary prerequisites, including specific versions of `Ruby` (via RVM) and `Go`.
-- **Verification & Maintenance**: Includes options to check tool versions and completely reinstall the toolkit.
->>>>>>> 2bb13daa27578146971d45c6006763d48cf1a685
+</td>
+</tr>
+</table>
 
 ---
 
